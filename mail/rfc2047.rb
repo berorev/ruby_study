@@ -4,12 +4,13 @@
 
 module RFC2047
   ENCODED_WORD_REGEXP = /=\?([^\?]+)\?([Bb])\?([^\?]+)\?=/ # "=?<charset>?<encoding>?<encoded-text>?=", Only supports encoding=[Bb]
+  ADJACENT_ENCODED_WORDS_REGEXP = /(#{ENCODED_WORD_REGEXP})[\s\r\n]+(?==\?(\2)\?([Bb])\?)/
   
   def self.decode(encoded_words)
     # FIX encoding for Korean
     encoded_words.gsub!('ks_c_5601-1987', 'cp949')
     
-    encoded_words.gsub(ENCODED_WORD_REGEXP) do |encoded_word|
+    encoded_words.gsub(ADJACENT_ENCODED_WORDS_REGEXP, "\\1").gsub(ENCODED_WORD_REGEXP) do |encoded_word|
       charset = $1
       encoding = $2
       encoded_text = $3
