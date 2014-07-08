@@ -17,6 +17,11 @@ def encoding_test
   puts 'END// encoding_test'
 end
 
+def regexp_test
+  puts 'success 1' if 'Welcome to Tutorialspoint.com' =~ /Tutorial/
+end
+
 if __FILE__ == $0
   encoding_test
+  regexp_test
 end
