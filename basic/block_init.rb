@@ -12,3 +12,4 @@ end
 Mail.new do |m|
   m.from 'from@gmail.com'
 end
+
