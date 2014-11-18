@@ -1,12 +1,7 @@
 require 'time'
 
-def str_to_time_test
-  subject = 'Synced at 2014-02-27 16:46:54 +0900'
-  time_str = subject.match(/Synced at (.+)$/)[1]
-  time = Time.parse(time_str)
-  puts time
-end
+puts Time.parse('2014-10-01')
 
-if __FILE__ == $0
-  str_to_time_test
-end
+puts t = Time.now
+puts t = t.utc
+puts t = t - t.hour * 60 * 60
