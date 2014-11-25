@@ -1,3 +1,5 @@
+# reference: http://ruby-doc.org/core-2.1.5/Enumerable.html
+
 arr = (1..5)
 
 p arr.map { |i| i ** 2 }
