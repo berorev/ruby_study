@@ -22,5 +22,6 @@ p c.grep(/SEEK/)
 p c.grep(/SEEK/) { |v| IO.const_get(v) }
 
 puts %w{ cat sheep bear }.max_by { |x| x.length }
-p %w{ cat sheep bear }.sort_by { |x| x.length }
+p %w{ cat 
+  sheep bear }.sort_by { |x| x.length }
 
